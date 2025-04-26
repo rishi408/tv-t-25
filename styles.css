@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #000000, #003366);
+    background: linear-gradient(to right, #000000, #430000);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -10,19 +10,19 @@ body {
   }
   
   .login-container {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 40px;
     border-radius: 50px;
     width: 300px;
     color: #fff;
     text-align: center;
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
   }
   
   .login-box h2 {
     margin-bottom: 20px;
-    color: #1e90ff;
+    color: #ff3b3b;
   }
   
   .input-group {
@@ -33,7 +33,7 @@ body {
   .input-group input {
     width: 100%;
     padding: 10px 4px 10px 10px;
-    border: 1px solid #1e90ff;
+    border: 1px solid #ff3b3b;
     border-radius: 8px;
     outline: none;
     background-color: transparent;
@@ -41,7 +41,7 @@ body {
   }
   
   .input-group input::placeholder {
-    color: #a0c4ff;
+    color: #ff9999;
   }
   
   .input-group .icon {
@@ -49,7 +49,7 @@ body {
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
-    color: #1e90ff;
+    color: #ff3b3b;
   }
   
   .options {
@@ -60,14 +60,14 @@ body {
   }
   
   .options a {
-    color: #1e90ff;
+    color: #ff3b3b;
     text-decoration: none;
   }
   
   button {
     width: 100%;
     padding: 10px;
-    background-color: #1e90ff;
+    background-color: #ff3b3b;
     color: white;
     border: none;
     border-radius: 20px;
@@ -77,16 +77,16 @@ body {
   }
   
   button:hover {
-    background-color: #0066cc;
+    background-color: #cc0000;
   }
   
   p {
     margin-top: 20px;
     font-size: 0.9em;
-    color: #ddd;
+    color: #eee;
   }
   
   p a {
-    color: #1e90ff;
+    color: #ff3b3b;
     text-decoration: none;
   }

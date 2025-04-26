@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Location Search</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', Arial, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f4f6f8;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #000000, #1e90ff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      color: white;
+      position: relative;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    input {
+      padding: 14px 18px;
+      width: 280px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      margin: 10px;
+      outline: none;
+    }
+
+    button {
+      padding: 14px 24px;
+      font-size: 18px;
+      margin: 10px;
+      background-color: #fcd303;
+      color: #1e2a38;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.4s, transform 0.3s;
+    }
+
+    button:hover {
+      background-color: #e6b800;
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      width: 350px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      color: #1e2a38;
+      font-size: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .result p {
+      margin: 12px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 2rem;
+      }
+      
+      input, button {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      .result {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero">
+    <h2>Search Location</h2>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Enter location (e.g., jbs, jntu, uppal)">
+      <button onclick="searchLocation()">Search</button>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const locations = {
+      "jbs": { time: "2 hr 20 min", distance: "34 km" },
+      "jntu": { time: "1 hr 10 min", distance: "64 km" },
+      "uppal": { time: "1 hr 51 min", distance: "26 km" }
+    };
+
+    function searchLocation() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const resultDiv = document.getElementById('result');
+
+      if (locations[input]) {
+        const location = locations[input];
+        resultDiv.innerHTML = `
+          <p><strong>Location:</strong> ${input.toUpperCase()}</p>
+          <p><strong>Time:</strong> ${location.time}</p>
+          <p><strong>Distance:</strong> ${location.distance}</p>
+        `;
+      } else {
+        resultDiv.innerHTML = "<p>Location not found.</p>";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: 'Poppins', Arial, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f4f6f8;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e2a38;
+    padding: 20px 50px;
+  }
+  
+  .logo img {
+    height: 55px;
+    border-radius: 10%;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 25px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #fcd303;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(to right, #000000, #1e90ff);
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 60px;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+  }
+  
+  .hero-text {
+    max-width: 600px;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+  
+  .highlight {
+    color: #fc6f03;
+    font-weight: bold;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #fcd303;
+    color: #1e2a38;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: background-color 0.4s, transform 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+  }
+  
+  /* Hero Image */
+  .hero-img img {
+    width: 550px;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Text Animations */
+  .animate-slide {
+    animation: slideIn 1s ease forwards;
+  }
+  
+  .animate-fade {
+    animation: fadeIn 2s ease forwards;
+  }
+  
+  .animate-pop {
+    animation: popUp 1.5s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes popUp {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1e2a38;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+  }
+  
+  .user-details-section {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fcd303;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  .user-greeting {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #1e2a38;
+    font-weight: bold;
+  }
+  
+  .logout-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #cc0000;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-text {
+      margin-bottom: 30px;
+    }
+  
+    .hero-img img {
+      width: 300px;
+    }
+  
+    .navbar {
+      flex-direction: column;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }  
+  }
+  .logo span{
+    font-size: 20px;
+    margin-left: 10px;
+    position: relative;
+    top: -20px;
+    font-weight: bold;
+    color: white;
+  }

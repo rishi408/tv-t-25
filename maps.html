@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Bus Routes with Actual Road Paths</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <!-- Routing Machine -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    const map = L.map('map').setView([17.4, 78.5], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const routes = [
+      {
+        name: "Uppal",
+        lat: 17.4058,
+        lng: 78.5591,
+        color: "red",
+        subs: [
+          { name: "Nagole X Road", lat: 17.367907, lng: 78.570920 },
+          { name: "Alkapuri", lat: 17.347370, lng: 78.557740 },
+          { name: "LB Nagar", lat: 17.341200, lng: 78.550572 },
+          { name: "BVK Theatre", lat: 17.335560, lng: 78.550251 },
+          { name: "Hayathnagar", lat: 17.321800, lng: 78.609200 },
+          { name: "Bongloor X Road", lat: 17.287117, lng: 78.639166 },
+          { name: "Koheda X Road", lat: 17.263851, lng: 78.683229 }
+        ]
+      },
+      {
+        name: "JBS",
+        lat: 17.448753,
+        lng: 78.496483,
+        color: "blue",
+        subs: [
+          { name: "Parade Grounds", lat: 17.447401, lng: 78.500046 },
+          { name: "Sainikpuri", lat: 17.478148, lng: 78.552470 },
+          { name: "Tarnaka", lat: 17.423962, lng: 78.529344 },
+          { name: "Mettuguda", lat: 17.427424, lng: 78.518624 },
+          { name: "Habsiguda", lat: 17.406407, lng: 78.542177 },
+          { name: "Nagole X Road", lat: 17.367907, lng: 78.570920 },
+          { name: "LB Nagar", lat: 17.341200, lng: 78.550572 },
+          { name: "Gurramguda", lat: 17.316832, lng: 78.609685 },
+          { name: "Bongloor X Road", lat: 17.287117, lng: 78.639166 },
+          { name: "Koheda X Road", lat: 17.263851, lng: 78.683229 }
+        ]
+      },
+      {
+        name: "JNTU College",
+        lat: 17.495213,
+        lng: 78.392977,
+        color: "green",
+        subs: [
+          { name: "KPHB", lat: 17.487816, lng: 78.386894 },
+          { name: "Kukatpally", lat: 17.494793, lng: 78.399644 },
+          { name: "Erragadda", lat: 17.448800, lng: 78.435607 },
+          { name: "Ameerpet", lat: 17.434803, lng: 78.448011 },
+          { name: "Panjagutta", lat: 17.430025, lng: 78.450088 },
+          { name: "Khairatabad", lat: 17.412750, lng: 78.458030 },
+          { name: "MGBS", lat: 17.378055, lng: 78.484784 },
+          { name: "LB Nagar", lat: 17.341200, lng: 78.550572 }
+        ]
+      }
+    ];
+
+    routes.forEach(route => {
+      const waypoints = [
+        L.latLng(route.lat, route.lng),
+        ...route.subs.map(stop => L.latLng(stop.lat, stop.lng))
+      ];
+
+      L.marker([route.lat, route.lng]).addTo(map).bindPopup(`🚌 ${route.name}`);
+
+      route.subs.forEach(stop => {
+        L.marker([stop.lat, stop.lng]).addTo(map).bindPopup(`🚌 ${stop.name}`);
+      });
+
+      L.Routing.control({
+        waypoints: waypoints,
+        lineOptions: {
+          styles: [{ color: route.color, weight: 4, opacity: 0.9 }]
+        },
+        addWaypoints: false,
+        draggableWaypoints: false,
+        fitSelectedRoutes: false,
+        createMarker: function() { return null; }
+      }).addTo(map);
+    });
+  </script>
+</body>
+</html>
